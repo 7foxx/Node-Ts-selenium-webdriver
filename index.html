@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div>
+      <button id="btn">获取角色信息</button>
+    </div>
+
+    <script
+      crossorigin="anonymous"
+      integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+      src="https://lib.baomitu.com/axios/0.27.2/axios.min.js"
+    ></script>
+    <script>
+      const getRole = async function () {
+        //禁用按钮
+        this.disabled = true
+        const isName = '久岐忍'
+        const isAll = true
+        const iupDB = true
+        const https = 'http://127.0.0.1:9098'
+        const res1 = await axios(https + '/crawl/honeyhunterworld', {
+          method: 'POST',
+          data: {
+            CrawlType: 'Role/RoleInfo',
+            isName,
+            isAll,
+            iupDB
+          }
+        })
+
+        await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve()
+          }, 100)
+        })
+
+        const res2 = await axios(https + '/crawl/wiki/identityUser', {
+          method: 'POST',
+          data: {
+            isUserName: isName,
+            isAll,
+            iupDB
+          }
+        })
+
+        const res3 = await axios(https + '/crawl/wiki/getRodebrek', {
+          method: 'POST',
+          data: {
+            isUserName: isName,
+            isAll,
+            iupDB
+          }
+        })
+
+        const res4 = await axios(https + '/crawl/ysgw', {
+          method: 'POST',
+          data: {
+            isName,
+            isrRarity: 5,
+            isChanne: 151,
+            isDownload: false,
+            iupDB
+          }
+        })
+
+        await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve()
+          }, 100)
+        })
+
+        const res5 = await axios(https + '/crawl/honeyhunterworld', {
+          method: 'POST',
+          data: {
+            CrawlType: 'Role/RoleFile',
+            isName,
+            isAll,
+            iupDB
+          }
+        })
+
+        Promise.all(res2.flag, res3.flag, res4.flag, res5.flag)
+          .then(res => {
+            this.disabled = false
+          })
+          .catch(err => {
+            console.log(err)
+            this.disabled = false
+          })
+      }
+
+      document.getElementById('btn').addEventListener('click', getRole)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "name": "node-ts",
+  "version": "1.0.0",
+  "description": "koa-api",
+  "main": "index.ts",
+  "scripts": {
+    "start": "nodemon --watch src/**/*.ts --exec \"ts-node -r tsconfig-paths/register\" src/index.ts --files",
+    "test": "jest"
+  },
+  "keywords": [
+    "koa",
+    "ts",
+    "mysql"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "download": "^8.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^10.1.1",
+    "koa2-cors": "^2.0.6",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15",
+    "selenium-webdriver": "^4.1.1"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/download": "^8.0.1",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/koa": "^2.13.4",
+    "@types/koa-bodyparser": "^4.3.7",
+    "@types/koa-router": "^7.4.4",
+    "@types/koa2-cors": "^2.0.2",
+    "@types/mysql": "^2.15.21",
+    "@types/selenium-webdriver": "^4.0.19",
+    "ts-node": "^10.7.0",
+    "tsconfig-paths": "^3.14.1",
+    "typescript": "^4.6.3"
+  }
+}
