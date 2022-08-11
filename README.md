@@ -1,6 +1,6 @@
 ## 启动
 
-```json
+```sh
 yarn start / npm rum start
 ```
 
@@ -52,3 +52,8 @@ yarn start / npm rum start
 ```
 
 **之后就可以在启用服务时激活 ts 的语法检测啦**
+
+
+## selenium-webdriver 使用
+
+安装 [chromedriver 启动器](https://registry.npmmirror.com/binary.html?path=chromedriver/) ，需要对应的 Chrome 版本，最接近即可
